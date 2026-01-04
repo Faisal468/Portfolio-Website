@@ -1,4 +1,5 @@
 import { ArrowDown } from 'lucide-react';
+import FaisalImg from '../assets/Faisal.jpeg';
 
 const Hero = () => {
   const scrollToProjects = () => {
@@ -45,7 +46,7 @@ const Hero = () => {
               <div className="absolute -inset-1 bg-gradient-to-r from-purple-600 to-blue-500 rounded-full opacity-60 blur-md group-hover:opacity-100 transition-opacity duration-500"></div>
 
               <img
-                src="/src/assets/Faisal.jpeg"
+                src={FaisalImg}
                 alt="Muhammad Faisal"
                 className="relative w-full h-full object-cover rounded-full border-4 border-white dark:border-gray-800 shadow-2xl z-10 transition-transform duration-500 transform group-hover:scale-105 group-hover:rotate-2"
               />
