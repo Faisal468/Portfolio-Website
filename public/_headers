@@ -1,6 +1,11 @@
 /assets/*
   Cache-Control: public, max-age=31536000, immutable
-  Expires: Wed, 31 Dec 2036 23:59:59 GMT
+
+/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/images/*
+  Cache-Control: public, max-age=31536000, immutable
 
 /*
-  Cache-Control: public, max-age=86400
+  Cache-Control: no-cache
