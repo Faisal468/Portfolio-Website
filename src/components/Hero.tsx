@@ -23,7 +23,7 @@ const Hero = () => {
               </span>
             </h1>
             <p className="text-lg md:text-xl text-gray-600 dark:text-gray-400 mb-8 leading-relaxed max-w-2xl mx-auto md:mx-0">
-              A passionate Full Stack Developer specializing in the MERN stack with strong hands-on experience in Machine Learning. Builds scalable, high-performance web applications with a focus on clean architecture, responsive design, and seamless user experiences. Designs, trains, and integrates machine learning models to deliver intelligent, data-driven features, transforming complex ideas into efficient, reliable, and smart digital solutions.
+              A passionate Full Stack Developer specializing in the MERN stack with strong hands on experience in Machine Learning. Builds scalable, high-performance web applications with a focus on clean architecture, responsive design, and seamless user experiences. Designs, trains, and integrates machine learning models to deliver intelligent, data-driven features, transforming complex ideas into efficient, reliable, and smart digital solutions.
             </p>
             <div className="flex justify-center md:justify-start">
               <button
