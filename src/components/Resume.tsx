@@ -1,5 +1,5 @@
 import { FileText, Download } from 'lucide-react';
-import resumePdf from '../assets/CV Resume.pdf';
+import resumePdf from '../assets/Faisal Resume.pdf';
 
 const Resume = () => {
     return (

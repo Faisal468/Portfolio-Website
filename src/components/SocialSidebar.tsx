@@ -1,4 +1,4 @@
-import { Github, Linkedin, Twitter, Instagram } from 'lucide-react';
+import { Github, Linkedin, Twitter } from 'lucide-react';
 
 
 const Whatsapp = ({ className }: { className?: string }) => (
@@ -12,6 +12,22 @@ const Whatsapp = ({ className }: { className?: string }) => (
     style={{ fillRule: 'evenodd', clipRule: 'evenodd' }}
   >
     <path d="M12.03 2c-5.54 0-10.03 4.49-10.03 10.03 0 1.77.46 3.48 1.33 5l-.18.1-.02.01-3.13 8.35 8.57-3.08.1.06c1.48.83 3.19 1.26 4.96 1.26 5.54 0 10.03-4.49 10.03-10.03 0-5.54-4.49-10.03-10.03-10.03zm0 1.76c4.56 0 8.27 3.71 8.27 8.27 0 4.56-3.71 8.27-8.27 8.27-1.48 0-2.91-.39-4.18-1.14l-4.5 1.61 1.63-4.43c-.83-1.32-1.27-2.85-1.27-4.4 0-4.56 3.71-8.27 8.27-8.27zM9.4 6.77c-.12-.34-.41-.35-.71-.36-.23 0-.49 0-.75.29-.26.29-1 .97-1 2.38 0 1.4.99 2.76 1.13 2.95.14.19 2.0 3.12 4.9 4.3.7.28 1.24.46 1.66.59.71.22 1.36.19 1.86.11.57-.08 1.75-.71 2-1.4.25-.68.25-1.28.17-1.4-.08-.12-.27-.2-.57-.34-.3-.15-1.76-.86-2.03-1-.27-.13-.47-.2-.67.11-.2.3-.77.99-.94 1.19-.17.2-.35.23-.65.08-.3-.15-1.26-.46-2.4-1.47-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.13.3-.34.45-.52.15-.17.2-.29.3-.49.09-.19.04-.36-.02-.51-.06-.15-.67-1.6-1.16-2.19z" />
+  </svg>
+);
+
+const Fiverr = ({ className }: { className?: string }) => (
+  <svg
+    role="img"
+    viewBox="0 0 24 24"
+    xmlns="http://www.w3.org/2000/svg"
+    fill="currentColor"
+    className={className}
+    width="24"
+    height="24"
+  >
+    <path d="M16.25 16.25v-10h-10v0.824c1.232 0 2.227.18 2.977.535.753.354 1.332.84 1.74 1.45.408.62.613 1.35.613 2.19v5h4.67z" fill="none" stroke="currentColor" strokeWidth="0" />
+    <circle cx="12" cy="12" r="11" fill="none" stroke="currentColor" strokeWidth="2" />
+    <text x="12" y="15" textAnchor="middle" fontSize="10" fontWeight="900" fontFamily="sans-serif" fill="currentColor">fi</text>
   </svg>
 );
 
@@ -41,22 +57,22 @@ const SocialSidebar = () => {
           <Linkedin className="w-5 h-5" />
         </a>
         <a
-          href="https://x.com/TwetbyFaisal"
+          href="https://www.fiverr.com/s/dDxbrw2"
           target="_blank"
           rel="noopener noreferrer"
           className="bg-white dark:bg-gray-800 hover:bg-purple-600 text-gray-800 dark:text-white hover:text-white p-3 rounded-full shadow-lg transition-all duration-300 transform hover:scale-110"
           aria-label="Twitter"
         >
-          <Twitter className="w-5 h-5" />
+          <Fiverr className="w-5 h-5" />
         </a>
         <a
-          href="https://www.instagram.com/m_faisal_10/"
+          href="https://x.com/TwetbyFaisal"
           target="_blank"
           rel="noopener noreferrer"
           className="bg-white dark:bg-gray-800 hover:bg-purple-600 text-gray-800 dark:text-white hover:text-white p-3 rounded-full shadow-lg transition-all duration-300 transform hover:scale-110"
           aria-label="Instagram"
         >
-          <Instagram className="w-5 h-5" />
+          <Twitter className="w-5 h-5" />
         </a>
 
         <a
