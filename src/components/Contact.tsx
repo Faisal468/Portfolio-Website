@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { Send, Mail, MapPin, Phone, MessageSquare, Clock, Globe } from 'lucide-react';
+import { Send, Mail, MapPin, Phone, MessageSquare, Clock, Globe, Video } from 'lucide-react';
+import VideoCall from './VideoCall';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -9,6 +10,8 @@ const Contact = () => {
   });
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState('');
+  const [showVideoCall, setShowVideoCall] = useState(false);
+  const [roomName, setRoomName] = useState('');
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -33,6 +36,33 @@ const Contact = () => {
     });
   };
 
+  const handleStartVideoCall = () => {
+    // Generate a unique room name
+    const uniqueRoomName = `ConnectWithFaisal-${Math.random().toString(36).substring(7)}`;
+    setRoomName(uniqueRoomName);
+
+    // Send email notification silently
+    const meetingUrl = `https://meet.jit.si/${uniqueRoomName}`;
+    const userName = formData.name || "Guest User";
+
+    fetch("https://formsubmit.co/ajax/mfaisalhussain468@gmail.com", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      body: JSON.stringify({
+        name: userName,
+        subject: "Incoming Video Call Request",
+        message: `User "${userName}" has requested a video call.\n\nJoin the meeting here:\n${meetingUrl}`,
+        _template: "table",
+        _captcha: "false"
+      })
+    }).catch(console.error); // Log error but don't stop the call
+
+    setShowVideoCall(true);
+  };
+
   return (
     <section id="contact" className="py-12 md:py-24 bg-gray-50 dark:bg-black relative overflow-hidden">
       {/* Background Decorations */}
@@ -47,7 +77,7 @@ const Contact = () => {
             Let's <span className="text-purple-600">Connect</span>
           </h2>
           <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto text-lg">
-            Have a project in mind or just want to chat? I'd love to hear from you.
+            Have a project in mind, want to chat, or hop on a video call? I'd love to hear from you.
           </p>
         </div>
 
@@ -61,6 +91,26 @@ const Contact = () => {
               </h3>
 
               <div className="space-y-6">
+
+                {/* Video Call Option - Highlighted */}
+                <div className="relative overflow-hidden group p-1 rounded-2xl bg-gradient-to-r from-purple-600 to-blue-600">
+                  <div className="bg-white dark:bg-gray-900 p-5 rounded-xl h-full relative z-10 flex flex-col sm:flex-row items-center gap-5 text-center sm:text-left">
+                    <div className="bg-purple-100 dark:bg-purple-900/30 p-4 rounded-full shrink-0 group-hover:scale-110 transition-transform duration-300">
+                      <Video className="w-8 h-8 text-purple-600 dark:text-purple-400" />
+                    </div>
+                    <div className="flex-1">
+                      <h4 className="text-lg font-bold text-gray-900 dark:text-white mb-1">Instant Video Call</h4>
+                      <p className="text-sm text-gray-500 dark:text-gray-400 mb-3">Connect with me directly.</p>
+                      <button
+                        onClick={handleStartVideoCall}
+                        className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-purple-600 to-blue-600 text-white text-sm font-semibold rounded-lg shadow-lg hover:shadow-purple-500/30 hover:scale-105 transition-all duration-300"
+                      >
+                        Start Call Now
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
                 <div className="flex items-start gap-4 p-4 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
                   <div className="bg-purple-100 dark:bg-purple-900/30 p-3 rounded-full shrink-0">
                     <Mail className="w-6 h-6 text-purple-600 dark:text-purple-400" />
@@ -199,6 +249,15 @@ const Contact = () => {
           </div>
         </div>
       </div>
+
+      {/* Video Call Modal */}
+      {showVideoCall && (
+        <VideoCall
+          roomName={roomName}
+          displayName={formData.name || "Guest User"}
+          onClose={() => setShowVideoCall(false)}
+        />
+      )}
     </section>
   );
 };
